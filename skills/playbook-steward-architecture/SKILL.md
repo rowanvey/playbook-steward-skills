@@ -5,7 +5,7 @@ description: "Statically assess whether an Ansible repository structure supports
 
 # Playbook Steward Architecture
 
-Assess structure only. Establish repository facts before you judge design. This skill gathers evidence and proposes proportionate improvements. It does not migrate, coordinate, execute, or replace the baseline Playbook Steward skill.
+Assess structure only. Establish repository facts before you judge design. This skill gathers evidence and proposes proportionate improvements.
 
 Read [repository mapping](references/repository-mapping.md) first. Read [findings and improvement](references/findings-and-improvement.md) before you classify findings or propose a plan.
 
@@ -30,6 +30,15 @@ Keep facts, inference, and unknowns separate. Protect secrets and avoid broad va
 Use version-matched official documentation when current behaviour matters. Ask before external, privileged, destructive, or materially expanded action. Never alter production.
 
 Do not claim unsupported compatibility, execution, security, or compliance results. Do not present an optional preference as a defect.
+
+## Exclusions
+
+This skill does not:
+
+- Migrate repositories.
+- Coordinate other skills.
+- Execute Ansible or infrastructure.
+- Perform unrelated specialist work, including AAP, AWX, EDA, Windows, network, cloud, Kubernetes, and compliance architecture.
 
 ## Required result
 

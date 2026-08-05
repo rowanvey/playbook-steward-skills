@@ -67,9 +67,25 @@ class ArchitectureSkillSourceTests(unittest.TestCase):
                 self.assertIn(concept, self.all_text.lower())
 
     def test_content_excludes_specialist_scope(self) -> None:
-        for excluded in ("AAP", "AWX", "EDA", "Windows", "network", "cloud", "Kubernetes", "compliance architecture"):
+        exclusions = re.search(
+            r"^## Exclusions\n\n(.*?)(?=^## |\Z)",
+            self.skill_text,
+            re.MULTILINE | re.DOTALL,
+        )
+        self.assertIsNotNone(exclusions)
+        self.assertIn("This skill does not:", exclusions.group(1))
+        for excluded in (
+            "AAP",
+            "AWX",
+            "EDA",
+            "Windows",
+            "network",
+            "cloud",
+            "Kubernetes",
+            "compliance architecture",
+        ):
             with self.subTest(excluded=excluded):
-                self.assertIn(excluded, self.reference_text)
+                self.assertIn(excluded, exclusions.group(1))
 
     def test_skill_has_no_monolith_dependency_or_forbidden_structure(self) -> None:
         self.assertNotIn("skill/playbook-steward", self.skill_text)
