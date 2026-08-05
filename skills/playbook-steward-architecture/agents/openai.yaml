@@ -1,0 +1,6 @@
+interface:
+  display_name: "Playbook Steward Architecture"
+  short_description: "Assess Ansible repository architecture"
+  default_prompt: "Use $playbook-steward-architecture to assess this Ansible repository structure and propose the smallest justified improvement."
+policy:
+  allow_implicit_invocation: false
